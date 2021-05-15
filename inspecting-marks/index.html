@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Inspecting Marks</title>
+        <link href="#" />
+    </head>
+    <body>
+        <p id="my_mark">99</p>
+        <script>
+            var mark = document.getElementById("my_mark");
+            setInterval(() => {
+                if (my_mark.innerText == "100") {
+                    fetch("/flag?u=" + encodeURIComponent(mark.innerText))
+                        .then(response => response.text())
+                        .then(data => my_mark.innerText = data);
+                }
+            }, 1000);
+        </script>
+    </body>
+</html>
