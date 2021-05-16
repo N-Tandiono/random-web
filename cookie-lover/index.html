@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cookie Lover</title>
+        <link href="#" />
+    </head>
+    <body>
+        <p id="cookie_status"></p>
+        <script>
+            var cookie_status = document.getElementById("cookie_status");
+            document.cookie = "cookie_status=Cookie Hater";
+            cookie_status.innerText = get_status();
+
+            setInterval(() => {
+                if (get_status().toLowerCase() == "cookie lover") {
+                    fetch("/flag?u=" + encodeURIComponent(get_status()))
+                        .then(response => response.text())
+                        .then(data => cookie_status.innerText = data);
+                }
+            }, 1000);
+
+            function get_status() {
+                return document.cookie.split('; ').find(row => row.startsWith('cookie_status=')).split('=')[1];
+            };
+        </script>
+    </body>
+</html>
