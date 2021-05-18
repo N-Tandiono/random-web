@@ -2,7 +2,7 @@ FROM node:14
 
 COPY . /var/www/app
 WORKDIR /var/www/app
-EXPOSE 1190
+EXPOSE 2010
 ENV PORT 90
 ENV FLAG FLAG{}
 

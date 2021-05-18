@@ -1,4 +1,4 @@
 #!/bin/bash
-app="cookie_lover"
+app="cookie-lover"
 docker build -t ${app} .
-docker run -dp 1190:100 --name=${app} -v $PWD:/app ${app}
+docker run -dp 2000:100 --name=${app} -v $PWD:/app ${app}
